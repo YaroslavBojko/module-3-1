@@ -1,19 +1,7 @@
 #include <iostream>
 
-/* Пассажиры оплачивают проезд при входе. Работать она должна примерно так:
-
-Отправляемся с остановки «Улица программистов». В салоне пассажиров: 3
-
------------Едем---------
-
-Прибываем на остановку «Проспект алгоритмов». В салоне пассажиров: 3
-
-…
-
-…
-
-
-Маршрут состоит из четырёх остановок. Напишите программу так, чтобы в конце она выводила, сколько денег мы заработали при условии, что билет стоит 20 руб., а расходы следующие:
+/* Пассажиры оплачивают проезд при входе.
+Напишите программу так, чтобы в конце она выводила, сколько денег мы заработали при условии, что билет стоит 20 руб., а расходы следующие:
 
 четверть — на зарплату водителю;
 пятая часть — на топливо;
@@ -61,6 +49,32 @@ int main() {
     std::cin >> passengersEntered;
     passengersCabin += (passengersEntered - passengersLeft);
     std::cout << "We depart from the " << nameStop1 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "-----------Let's go---------" << std::endl;
 
+    std::cout << "We arrive at the " << nameStop2 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "How many passengers got off at the stop? ";
+    std::cin >> passengersLeft;
+    std::cout << "How many passengers got on at the stop? ";
+    std::cin >> passengersEntered;
+    passengersCabin += (passengersEntered - passengersLeft);
+    std::cout << "We depart from the " << nameStop2 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "-----------Let's go---------" << std::endl;
 
+    std::cout << "We arrive at the " << nameStop3 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "How many passengers got off at the stop? ";
+    std::cin >> passengersLeft;
+    std::cout << "How many passengers got on at the stop? ";
+    std::cin >> passengersEntered;
+    passengersCabin += (passengersEntered - passengersLeft);
+    std::cout << "We depart from the " << nameStop3 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "-----------Let's go---------" << std::endl;
+
+    std::cout << "We arrive at the " << nameStop4 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "How many passengers got off at the stop? ";
+    std::cin >> passengersLeft;
+    std::cout << "How many passengers got on at the stop? ";
+    std::cin >> passengersEntered;
+    passengersCabin += (passengersEntered - passengersLeft);
+    std::cout << "We depart from the " << nameStop4 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
+    std::cout << "-----------Let's go---------" << std::endl;
 }
