@@ -1,35 +1,5 @@
 #include <iostream>
 
-/* Пассажиры оплачивают проезд при входе.
-Напишите программу так, чтобы в конце она выводила, сколько денег мы заработали при условии, что билет стоит 20 руб., а расходы следующие:
-
-четверть — на зарплату водителю;
-пятая часть — на топливо;
-пятая часть — на налоги;
-пятая часть — на ремонт машины.
-Формат вывода (после прибытия на последнюю остановку):
-
-Всего заработали: 100 руб.
-
-Зарплата водителя: 25 руб.
-
-Расходы на топливо: 20 руб.
-
-Налоги: 20 руб.
-
-Расходы на ремонт машины: 20 руб.
-
-Итого доход: 15 руб.
-
-Рекомендации по выполнению
-        В одной программе должен быть как ввод количества вошедших и вышедших пассажиров, так и расчёты доходов и расходов.
-Стоит вынести названия остановок в переменные.
-Постарайтесь написать программу так, чтобы в неё без особых изменений можно было добавить ещё несколько остановок.
-Что оценивается
-Правильность подсчёта текущего количества пассажиров.
-Правильность подсчёта доходов и расходов.
-Отсутствие лишних переменных.*/
-
 int main() {
     std::cout << "Program <Minibus Simulator>" << std::endl;
 
@@ -41,6 +11,7 @@ int main() {
     int passengersCabin = 0;
     int passengersLeft = 0;
     int passengersEntered = 0;
+    int passengersNumber = 0;
 
     std::cout << "We arrive at the " << nameStop1 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
     std::cout << "How many passengers got off at the stop? ";
@@ -48,6 +19,7 @@ int main() {
     std::cout << "How many passengers got on at the stop? ";
     std::cin >> passengersEntered;
     passengersCabin += (passengersEntered - passengersLeft);
+    passengersNumber += passengersEntered;
     std::cout << "We depart from the " << nameStop1 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
     std::cout << "-----------Let's go---------" << std::endl;
 
@@ -57,6 +29,7 @@ int main() {
     std::cout << "How many passengers got on at the stop? ";
     std::cin >> passengersEntered;
     passengersCabin += (passengersEntered - passengersLeft);
+    passengersNumber += passengersEntered;
     std::cout << "We depart from the " << nameStop2 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
     std::cout << "-----------Let's go---------" << std::endl;
 
@@ -66,6 +39,7 @@ int main() {
     std::cout << "How many passengers got on at the stop? ";
     std::cin >> passengersEntered;
     passengersCabin += (passengersEntered - passengersLeft);
+    passengersNumber += passengersEntered;
     std::cout << "We depart from the " << nameStop3 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
     std::cout << "-----------Let's go---------" << std::endl;
 
@@ -75,6 +49,23 @@ int main() {
     std::cout << "How many passengers got on at the stop? ";
     std::cin >> passengersEntered;
     passengersCabin += (passengersEntered - passengersLeft);
+    passengersNumber += passengersEntered;
     std::cout << "We depart from the " << nameStop4 << " stop. Passengers in the cabin: " << passengersCabin << std::endl;
-    std::cout << "-----------Let's go---------" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+
+    int ticketPrice = 20;
+    int totalAmount = passengersNumber * ticketPrice;
+    int driversSalary = totalAmount / 4;
+    int fuel = totalAmount / 5;
+    int taxes = totalAmount / 5;
+    int carRepairs = totalAmount / 5;
+    int income = totalAmount - (driversSalary + fuel + taxes + carRepairs);
+
+    std::cout << "Total earned: " << totalAmount <<  " rubles." << std::endl;
+    std::cout << "Driver's salary: " << driversSalary << " rubles." << std::endl;
+    std::cout << "Fuel costs: " << fuel << " rubles." << std::endl;
+    std::cout << "Taxes: " << taxes << " rubles." << std::endl;
+    std::cout << "Costs for car repairs: " << carRepairs << " rubles." << std::endl;
+    std::cout << "Total income: " << income << " rubles." << std::endl;
+
 }
